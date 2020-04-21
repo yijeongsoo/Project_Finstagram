@@ -1,0 +1,45 @@
+<html>
+<head>
+</head>
+<body>
+
+
+Which closeFriendGroup would you like to share this photo with?
+
+<form action="/share" method = "POST">
+
+<input type="hidden" name = "photoID", value = {{photoID}}>
+
+{% for group in group_data %}
+<input type="radio" name="groupName" value={{group.groupName}} required/>{{group.groupName}}
+
+	<br>
+
+{% endfor %}
+	<br>
+
+	<input type="hidden" name = photoID, value={{photoID}}>
+
+	<input type="submit" value="Share">	
+
+	<br>
+	<br>
+
+</form>
+
+
+	{% if message %}
+    {{ message }}
+    {% endif %}
+
+    <br>
+
+    <br/>
+
+
+<a href="/home">Go back</a>
+
+</body>
+
+
+</html>

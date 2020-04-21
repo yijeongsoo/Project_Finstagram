@@ -1,0 +1,46 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/manage_tag_auth" method="GET">
+
+	<style type="text/css">
+		table, td{
+			border: 1px solid black;
+		}
+	</style>
+
+	Here Are The Tag Requests that you have received:
+
+	<div>
+		<br>
+
+		<table>
+			<th>photo</th>
+			<th>Accept?</th>
+
+		{% for image in requests %}
+			<tr>
+				<td><img src="/image/{{image.filepath}}" width="300"/></td>
+				<td><input type="submit" name="Yes" value="Yes"></td>
+			</tr>
+			<input type="hidden" name = "photoID" value={{image.photoID}}>
+		{% endfor %}
+		</table>
+
+		{% if message %}
+		{{ message }}
+		{% endif %}
+</form>
+	
+<br>
+<br>
+</div>
+<a href="/home">Back to Home</a>
+<br>
+
+
+</body>
+
+
+</html>

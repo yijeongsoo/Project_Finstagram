@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Finstagram</title>
+    </head>
+    <body>
+
+    <style type="text/css">
+        table, td {
+            border: 1px solid black;
+        }
+    </style>
+
+        <h1>Image Gallery</h1>
+        <br>
+
+        <div>
+            {% for image in images %}
+
+            <img src="/image/{{image.filepath}}" width="300"/>
+            <table border = "1">
+                <tr>
+                    <th>Poster</th>
+                    <th>Time Posted</th>
+                </tr>
+                <tr>
+                    <td>{{image.photoOwner}}</td>
+                    <td>{{image.timestamp}}</td>
+                </tr>
+
+
+            </table>
+
+            <br>
+
+            <table>
+                <tr>
+                    <td>Tagged</td>
+                </tr>
+                {% for name in taggees %}
+                    {% if name.photoID == image.photoID %}
+                    <tr>
+                        <td>{{name.username}}</td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+            </table>
+            <br>
+    <form action ="/tag_photo" method = "POST">
+            <input type = "submit" name = "tag" value="Tag a Person"></br>
+            <input type = "hidden" name = "photoID" value={{image.photoID}}>
+            <br>
+    </form>
+            <br>
+            {% endfor %}
+
+        </div>
+        <a href="/home">Go back</a>
+    </body>
+</html>

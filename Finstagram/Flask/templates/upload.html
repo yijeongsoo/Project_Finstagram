@@ -1,0 +1,31 @@
+<html>
+    <head>
+        <title>Image Upload</title>
+    </head>
+    <body>
+        <h1>Upload an Image!</h1>
+        <br>
+        Select File:
+        <div>
+            <form action="/upload_image" method="post" enctype="multipart/form-data">
+                <input type="file" name="imageToUpload" accept="image/*">
+                <br/>
+                <br>
+                Open to all Users?
+                <br>
+                <input type="radio" name="allFollowers" value="public">YES</input>
+                <input type="radio" name="allFollowers" value="private">NO</input>
+
+                <br>
+                <br>
+
+                <input type="submit" value="Upload">
+            </form>
+        </div>
+        {% if message %}
+            {{ message }}
+        {% endif %}
+        <br/>
+        <a href="/home">Go back</a>
+    </body>
+</html>

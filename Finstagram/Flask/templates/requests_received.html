@@ -1,0 +1,42 @@
+<html>
+<head>
+</head>
+<body>
+<form action="/requests_received_auth" method="GET">
+
+	<style type="text/css">
+		table, th, td{
+			border: 1px solid black;
+		}
+	</style>
+
+	Here Are Requests that you have received:
+	<br>
+
+	<table>
+		<th>username</th>
+		<th>Accept?</th>
+
+	{% for line in requests %}
+		<tr>
+			<td><input type="radio" name="followerUsername" value={{line.followerUsername}} required/>{{line.followerUsername}}</td>
+			<td><input type="submit" name="Yes" value="Yes"></td>
+		</tr>
+	{% endfor %}
+	</table>
+
+	{% if message %}
+	{{ message }}
+	{% endif %}
+</form>
+	
+<br>
+<br>
+<a href="/home">Back to Home</a>
+<br>
+
+
+</body>
+
+
+</html>

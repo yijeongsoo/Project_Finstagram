@@ -1,0 +1,31 @@
+<html>
+<head>
+</head>
+<body>
+
+Enter a username to tag in this photo:
+
+<br>
+
+<form action="/tag_auth" method = "POST">
+	<input type = "text" name = "tagName" placeholder="username">
+	<input type = "hidden" name = photoID value = {{photoID}}>
+	<br>
+
+	<input type = "submit" name="tag" value="Tag">
+<br>
+{% if message %}
+	{{ message }}
+	{% endif %}
+<br>
+</form>
+
+<br>
+<br>
+<br>
+<a href="/home">Go back</a>
+
+</body>
+
+
+</html>

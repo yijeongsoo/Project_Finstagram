@@ -1,0 +1,10 @@
+
+cd\Users\yijeo\Music\Spring 2019\CS3083 Database\Project\project_finstagram
+
+env\Scripts\activate
+
+cd Finstagram\Flask
+
+set FLASK_APP=finstagram.py
+
+flask run
